@@ -47,15 +47,22 @@
       this.startTime = Date.now() - this.elapsedTime
       this.interval = setInterval( this.startTimer.bind(this), 10)
     }
-    stop () {}
+    stop () {
+      clearInterval(this.interval)
+    }
     reset () {}
   }
 
   const $startButton = get('.timer_button.start')
+  const $stopButton = get('.timer_button.stop')
   const $timer = get('.timer')
   const stopWatch = new StopWatch($timer)
 
   $startButton.addEventListener('click', () => {
     stopWatch.start()
+  })
+
+    $stopButton.addEventListener('click', () => {
+    stopWatch.stop()
   })
 })()
