@@ -44,6 +44,7 @@
     }
 
     start () {
+      clearInterval(this.interval)
       this.startTime = Date.now() - this.elapsedTime
       this.interval = setInterval( this.startTimer.bind(this), 10)
     }
