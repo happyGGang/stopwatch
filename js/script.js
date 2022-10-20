@@ -14,12 +14,23 @@
       this.elapsedTime = 0
     }
 
+    addZero (number) {
+      if(number < 10) {
+        return '0' + number
+      }
+      if (number > 99) {
+        return number.toString().slice(0, -1)
+      }
+
+      return number
+    }
+
     timeToString(time) {
       const date = new Date(time)
       const minutes = date.getUTCMinutes()
       const seconds = date.getUTCSeconds()
       const milliseconds = date.getUTCMilliseconds()
-      return `${minutes}:${seconds}:${milliseconds}`
+      return `${this.addZero(minutes)}:${this.addZero(seconds)}:${this.addZero(milliseconds)}`
     }
 
     print(text) {
