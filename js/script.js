@@ -16,14 +16,20 @@
 
     timeToString(time) {
       const date = new Date(time)
-      const minutes = date.getUTCMinutes
-      const seconds = date.getUTCSeconds
-        const milliseconds = date.getUTCMilliseconds
+      const minutes = date.getUTCMinutes()
+      const seconds = date.getUTCSeconds()
+      const milliseconds = date.getUTCMilliseconds()
+      return `${minutes}:${seconds}:${milliseconds}`
+    }
+
+    print(text) {
+      this.timer.innerHTML = text
     }
 
     startTimer() {
       this.elapsedTime = Date.now() - this.startTime
       const time = this.timeToString(this.elapsedTime)
+      this.print(time)
     }
 
     start () {
